@@ -69,4 +69,21 @@ class Warehouse extends CI_Controller{
     
         echo json_encode($json_data); 
     }
+
+    public function rekap_pemakaian(){
+        $tanggal_awal = $this->input->post('tgl_awal');
+        $tanggal_akhir = $this->input->post('tgl_akhir');
+
+        if (empty($tanggal_awal) || empty($tanggal_akhir)) {
+            $tanggal_akhir = date('Y-m-d');
+            $tanggal_awal = date('Y').'-06-01';
+        }
+
+        $table = $this->system_model->rekap_dept($tanggal_awal, $tanggal_akhir);
+        $rekap['html'] = $this->load->view('rekap_pemakaian', compact('table'),true);
+        echo json_encode($rekap);
+        //$this->load->view('rekap_pemakaian',compact('table'));
+
+
+    }
 }

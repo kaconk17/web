@@ -74,7 +74,7 @@
 		          { "data": "item" },
                   { "data": "spesifikasi" },
                   { "data": "uom" },
-                  { "data": "price" },
+                  { "data": "price" , className:'dt-right'},
                   { "data": "currency" },
                   { "data": "supplier" },
             ]

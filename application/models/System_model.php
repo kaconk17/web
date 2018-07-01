@@ -61,7 +61,7 @@ class System_model extends CI_Model{
 
     public function total_record($table, $con, $cari){
         $query = $this->db->query("SELECT count(*) as row FROM $table WHERE $con LIKE '%$cari%'")->row_array();
-        //$query = $this->db->get('tb_masteritem')->num_rows();
+        
         return $query['row'];
     }
 
@@ -87,7 +87,7 @@ class System_model extends CI_Model{
         $this->db->from($table);
         $this->db->like('item',$search,'both');
         $this->db->or_like('spesifikasi',$search,'both');
-        //$sql ="SELECT * from tb_masteritem WHERE item LIKE '%$cari%'";
+        
         $this->db->limit(10,$offset);
         $result = $this->db->get()->result();
         return $result;
@@ -95,8 +95,14 @@ class System_model extends CI_Model{
 
     public function total_search($table, $cari){
         $query = $this->db->query("SELECT count(*) as row FROM $table WHERE item LIKE '%$cari%' or spesifikasi like '%$cari%'")->row_array();
-        //$query = $this->db->get('tb_masteritem')->num_rows();
+        
         return $query['row'];
+    }
+
+    public function rekap_dept($tanggal_awal, $tanggal_akhir){
+        $query = "SELECT dept, sum(price)as total FROM tb_recap WHERE out_date >= '$tanggal_awal' AND out_date <= '$tanggal_akhir' group by dept";
+        $result = $this->db->query($query)->result();
+        return $result;
     }
     
 }
