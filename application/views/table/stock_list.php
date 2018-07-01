@@ -75,18 +75,18 @@
                   { "data": "status" },
                   { "data": "item" },
                   { "data": "spesifikasi" },
-                  { "data": "end_stock" },
+                  { "data": "end_stock"}, 
                   { "data": "uom" },
                   { "data": "class" },
                   { "data": "used" },
             ],
-    "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-      if ( aData['status'] == "NG" )
-      {
-        $('td', nRow).css('background-color', 'hsla(9,100%,64%,0.8)' );
-      }
-      
-    }
+            "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+            if ( aData['status'] == "NG" )
+            {
+                $('td', nRow).css('background-color', 'hsla(9,100%,64%,0.8)' );
+            }
+            
+            }
 
         });
     });

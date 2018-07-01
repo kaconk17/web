@@ -44,11 +44,11 @@ class Warehouse extends CI_Controller{
                 $no++;
                 $nestedData['no'] = $no;
                 $nestedData['item_code'] = $post->item_code;
-                $nestedData['min_stock'] = $post->min_stock;
+                $nestedData['min_stock'] = number_format($post->min_stock);
                 $nestedData['status'] = $post->status;
                 $nestedData['item'] = $post->item;
                 $nestedData['spesifikasi'] = $post->spesifikasi;
-                $nestedData['end_stock'] = $post->end_stock;
+                $nestedData['end_stock'] = number_format($post->end_stock);
                 $nestedData['uom'] = $post->uom;
                 $nestedData['class'] = $post->class;
                 $nestedData['used'] = $post->used;

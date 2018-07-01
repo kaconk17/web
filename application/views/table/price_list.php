@@ -78,6 +78,8 @@
                   { "data": "currency" },
                   { "data": "supplier" },
             ]
+
+           
         });
     });
     </script>
