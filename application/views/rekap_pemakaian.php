@@ -12,8 +12,33 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+                            <div class="container">
+                                <div class='col-sm-2'>
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker6'>
+                                            <label for="">Tanggal Awal</label>
+                                            <input type='text' class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='col-sm-2'>
+                                    <div class="form-group">
+                                        <div class='input-group date' id='datetimepicker7'>
+                                            <label for="">Tanggal Akhir</label>
+                                            <input type='text' class="form-control" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="pull-right">
                                 <div class="btn-group">
+                                    
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                         Actions
                                         <span class="caret"></span>
@@ -199,3 +224,6 @@
         </div>
         <script src="<?php echo base_url(); ?>assets/js/plugins/morris/morris.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/plugins/morris/raphael-2.1.0.min.js"></script>
+        <script type="text/javascript">
+       
+        </script>
