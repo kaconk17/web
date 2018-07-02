@@ -1,6 +1,6 @@
 <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard </h1>
+                    <h1 class="page-header">Used Stock</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -11,51 +11,24 @@
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+                            <i class="fa fa-bar-chart-o fa-fw"></i> From <?php echo $tanggal_awal; ?> To <?php echo $tanggal_akhir; ?>
                             <div class="container">
-                                <div class='col-sm-2'>
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker6'>
-                                            <label for="">Tanggal Awal</label>
-                                            <input type='text' class="form-control" />
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='col-sm-2'>
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker7'>
-                                            <label for="">Tanggal Akhir</label>
-                                            <input type='text' class="form-control" />
-                                            <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="form-inline">
+                            <div class="form-group">
+                            
+                                <label for="tgl_awal">Begining</label>
+                                <input type='text' class="form-control-sm" id="tgl_awal"/>
+                                
+                            
+                            
+                                <label for="tgl_akhir">End</label>
+                                <input type='text' class="form-control-sm" id="tgl_akhir"/>
+                                
+                                <button type="button" class="btn-sm btn-default">Submit</button>
+                            
                             </div>
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        </div>
+                        </div>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -222,8 +195,24 @@
             </div>
             <!-- /.row -->
         </div>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/plugins/jquery-ui/jquery-ui.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/js/plugins/jquery-ui/jquery-ui.css">
         <script src="<?php echo base_url(); ?>assets/js/plugins/morris/morris.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/plugins/morris/raphael-2.1.0.min.js"></script>
         <script type="text/javascript">
-       
+        $(document).ready(function(){
+            $(function(){
+
+            
+                $('#tgl_awal').datepicker({dateFormat:'yy-mm-dd'});
+                $('#tgl_akhir').datepicker({dateFormat:'yy-mm-dd'});
+           
+            
+                
+                
+            });
+        });
+            
+           
+        
         </script>

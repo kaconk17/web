@@ -80,7 +80,7 @@ class Warehouse extends CI_Controller{
         }
 
         $table = $this->system_model->rekap_dept($tanggal_awal, $tanggal_akhir);
-        $rekap['html'] = $this->load->view('rekap_pemakaian', compact('table'),true);
+        $rekap['html'] = $this->load->view('rekap_pemakaian', compact('table','tanggal_awal','tanggal_akhir'),true);
         echo json_encode($rekap);
         //$this->load->view('rekap_pemakaian',compact('table'));
 
