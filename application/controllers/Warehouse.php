@@ -75,15 +75,20 @@ class Warehouse extends CI_Controller{
         $tanggal_akhir = $this->input->post('tgl_akhir');
 
         if (empty($tanggal_awal) || empty($tanggal_akhir)) {
+            
             $tanggal_akhir = date('Y-m-d');
-            $tanggal_awal = date('Y').'-06-01';
+            $tanggal_awal = date('Y-m').'-01';
         }
 
         $table = $this->system_model->rekap_dept($tanggal_awal, $tanggal_akhir);
-        $rekap['html'] = $this->load->view('rekap_pemakaian', compact('table','tanggal_awal','tanggal_akhir'),true);
+        $rekap['html'] = $this->load->view('table/rekap_used', compact('table','tanggal_awal','tanggal_akhir'),true);
         echo json_encode($rekap);
         //$this->load->view('rekap_pemakaian',compact('table'));
 
 
+    }
+
+    public function rekap_page(){
+        $this->load->view('rekap_pemakaian');
     }
 }

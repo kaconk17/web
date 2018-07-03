@@ -11,7 +11,7 @@
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> From <?php echo $tanggal_awal; ?> To <?php echo $tanggal_akhir; ?>
+                            
                             <div class="container">
                             <div class="form-inline">
                             <div class="form-group">
@@ -24,7 +24,7 @@
                                 <label for="tgl_akhir">End</label>
                                 <input type='text' class="form-control-sm" id="tgl_akhir"/>
                                 
-                                <button type="button" class="btn-sm btn-default">Submit</button>
+                                <button type="button" class="btn-sm btn-default" id="btn_submit">Submit</button>
                             
                             </div>
                         </div>
@@ -34,35 +34,12 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>No.</th>
-                                                    <th>Departemen</th>
-                                                    <th>Total</th>
-                                                    <th>Details</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php 
-                                                $no=1;
-                                                foreach ($table as $row) {
-                                                    echo "<tr>";
-                                                    echo "<td>".$no."</td>";
-                                                    echo "<td>".$row->dept."</td>";
-                                                    echo "<td>".$row->total."</td>";
-                                                    echo "<td>Details</td>";
-                                                    
-                                                    echo "</tr>";
-                                                    $no ++;
-                                                } 
-                                                
-                                                ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <div id="tbl_rekap">
+                                    
+                                        
+                                    
                                     <!-- /.table-responsive -->
+                                    </div>
                                 </div>
                                 <!-- /.col-lg-4 (nested) -->
                                 <div class="col-lg-8">
@@ -201,17 +178,45 @@
         <script src="<?php echo base_url(); ?>assets/js/plugins/morris/raphael-2.1.0.min.js"></script>
         <script type="text/javascript">
         $(document).ready(function(){
+            load_table();
             $(function(){
 
             
                 $('#tgl_awal').datepicker({dateFormat:'yy-mm-dd'});
-                $('#tgl_akhir').datepicker({dateFormat:'yy-mm-dd'});
-           
-            
-                
-                
+                $('#tgl_akhir').datepicker({dateFormat:'yy-mm-dd'}); 
+            });
+
+            $('#btn_submit').click(function(){
+                //alert($('#tgl_awal').val());
+                var tgl_awal = $('#tgl_awal').val();
+                var tgl_akhir = $('#tgl_akhir').val();
+                load_table(tgl_awal,tgl_akhir);
+
             });
         });
+
+        function load_table(tgl_awal,tgl_akhir) {
+        
+        $.ajax({
+            type: "POST",
+            url: 'warehouse/rekap_pemakaian',
+            data: {tgl_awal,tgl_akhir},
+            dataType: "json",
+
+            success: function(response){ 
+              
+              // Ganti isi dari div view dengan view yang diambil dari controller siswa function search
+              $("#tbl_rekap").html(response.html);
+              
+              
+              
+            },
+            error: function (xhr, ajaxOptions, thrownError) { // Ketika terjadi error
+              alert(xhr.responseText); // munculkan alert
+            }           
+        }); 
+
+        }
             
            
         
