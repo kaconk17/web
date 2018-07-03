@@ -83,7 +83,7 @@ class Warehouse extends CI_Controller{
         $table = $this->system_model->rekap_dept($tanggal_awal, $tanggal_akhir);
         //$rekap['html'] = $this->load->view('table/rekap_used', compact('table','tanggal_awal','tanggal_akhir'),true);
         $rekap=array();
-        foreach ($tabel as $key) {
+        foreach ($table as $key) {
             $rekap[]=array(
                 'jumlah'=>$key->total, 'dept'=>$key->dept,
             );
