@@ -43,7 +43,7 @@
                                 </div>
                                 <!-- /.col-lg-4 (nested) -->
                                 <div class="col-lg-8">
-                                    <div id="morris-bar-chart"></div>
+                                    <div id="bar-chart"></div>
                                 </div>
                                 <!-- /.col-lg-8 (nested) -->
                             </div>
@@ -206,8 +206,20 @@
             success: function(response){ 
               
               // Ganti isi dari div view dengan view yang diambil dari controller siswa function search
-              $("#tbl_rekap").html(response.html);
-              
+              //$("#tbl_rekap").html(response.html);
+              new Morris.Bar({
+                // ID of the element in which to draw the chart.
+                element: 'bar-chart',
+                // Chart data records -- each entry in this array corresponds to a point on
+                // the chart.
+                data: response,
+                // The name of the data record attribute that contains x-values.
+                xkey: 'dept',
+                // A list of names of data record attributes that contain y-values.
+                ykeys: ['total'],
+                // Labels for the ykeys -- will be displayed when you hover over the
+                // chart.
+                labels: ['Rekap']
               
               
             },
@@ -218,6 +230,7 @@
 
         }
             
-           
+       
+});
         
         </script>
