@@ -1,4 +1,14 @@
 <div class="row">
+                <div class="col-lg-12" id="page_accord">
+                    
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+
+<div class="row">
+
+
                 <div class="col-lg-12">
                     <h1 class="page-header">Used Stock</h1>
                 </div>
@@ -172,6 +182,9 @@
             </div>
             <!-- /.row -->
         </div>
+        
+  
+        <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/plugins/jquery-ui/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/js/plugins/jquery-ui/jquery-ui.css">
         <script src="<?php echo base_url(); ?>assets/js/plugins/morris/morris.js"></script>
@@ -206,22 +219,23 @@
             success: function(response){ 
               
               // Ganti isi dari div view dengan view yang diambil dari controller siswa function search
-              //$("#tbl_rekap").html(response.html);
-              new Morris.Bar({
+              $("#page_accord").html(response.html);
+             
+              /*new Morris.Line({
                 // ID of the element in which to draw the chart.
                 element: 'bar-chart',
                 // Chart data records -- each entry in this array corresponds to a point on
                 // the chart.
-                data: response,
+                data: response.data,
                 // The name of the data record attribute that contains x-values.
-                xkey: 'dept',
+                xkey: 'y',
                 // A list of names of data record attributes that contain y-values.
                 ykeys: ['jumlah'],
                 // Labels for the ykeys -- will be displayed when you hover over the
                 // chart.
-                labels: ['dept']});
-              
-              
+                labels: ['y']
+            });
+              */
             },
             error: function (xhr, ajaxOptions, thrownError) { // Ketika terjadi error
               alert(xhr.responseText); // munculkan alert
@@ -229,6 +243,26 @@
         }); 
 
         }
+
+       /* function chart_rekap(xyz) {
+           
+             
+            
+            new Morris.Bar({
+                // ID of the element in which to draw the chart.
+                element: 'bar-chart',
+                // Chart data records -- each entry in this array corresponds to a point on
+                // the chart.
+                data: xyz,
+                // The name of the data record attribute that contains x-values.
+                xkey: 'y',
+                // A list of names of data record attributes that contain y-values.
+                ykeys: ['jumlah'],
+                // Labels for the ykeys -- will be displayed when you hover over the
+                // chart.
+                labels: ['dept']
+            });
+        }*/
             
        
 

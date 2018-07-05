@@ -81,14 +81,18 @@ class Warehouse extends CI_Controller{
         }
 
         $table = $this->system_model->rekap_dept($tanggal_awal, $tanggal_akhir);
-        //$rekap['html'] = $this->load->view('table/rekap_used', compact('table','tanggal_awal','tanggal_akhir'),true);
-        $rekap=array();
-        foreach ($table as $key) {
-            $rekap[]=array(
-                'jumlah'=>$key->total, 'dept'=>$key->dept,
-            );
-           
+        $rekap['html']= $this->load->view('table/rekap_dept', compact('table','tanggal_awal','tanggal_akhir'),true);
+       /* $data=array();
+        foreach ($table as $row) {
+            
+
+                $track['y']= $row->dept; //y sebagai kata kunci nya (tahun)    
+                $track['jumlah']=$row->total; //jumlah penjualan
+              
+            $data[]=$track;
         }
+        $json_data = array( 'html' => $this->load->view('table/rekap_used', compact('table','tanggal_awal','tanggal_akhir'),true), 'data'=>$data);
+        */
         echo json_encode($rekap);
         //$this->load->view('rekap_pemakaian',compact('table'));
 

@@ -16,7 +16,7 @@
                 echo "<tr>";
                 echo "<td>".$no."</td>";
                 echo "<td>".$row->dept."</td>";
-                echo "<td align='right'>Rp. ".number_format($row->total,2)."</td>";
+                echo "<td align='right'>".number_format($row->total,2)."</td>";
                 echo "<td>Details</td>";
                 
                 echo "</tr>";
