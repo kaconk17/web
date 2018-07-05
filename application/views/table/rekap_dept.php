@@ -13,7 +13,8 @@
                                     <div class='panel panel-default'>
                                     <div class='panel-heading'>
                                         <h4 class='panel-title'>
-                                            <a data-toggle='collapse' data-parent='#accordion' href='#collapse".$no."'>".$row->dept."  ".$row->total." </a>
+                                            
+                                            <button class='btn btn-link collapsed' type='button' data-toggle='collapse' data-target='#collapse".$no."' aria-expanded='false' aria-controls='collapse".$no."'>".$row->dept."  ".$row->total." 
                                         </h4>
                                     </div>
                                     <div id='collapse".$no."' class='panel-collapse collapse in'>
@@ -36,3 +37,5 @@
                         <!-- .panel-body -->
                     </div>
                     <!-- /.panel -->
+
+                   <!-- <a data-toggle='collapse' data-parent='#accordion' href='#collapse".$no."' aria-expanded='false' aria-controls='collapse".$no."'>".$row->dept."  ".$row->total." </a>-->
