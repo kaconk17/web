@@ -75,7 +75,9 @@
         <script src="<?php echo base_url(); ?>assets/js/plugins/morris/raphael-2.1.0.min.js"></script>
         <script type="text/javascript">
         $(document).ready(function(){
+            chart_rekap();
             load_table();
+            
             $(function(){
 
             
@@ -106,21 +108,7 @@
               // Ganti isi dari div view dengan view yang diambil dari controller siswa function search
               $("#page_accord").html(response.html);
              
-              /*new Morris.Line({
-                // ID of the element in which to draw the chart.
-                element: 'bar-chart',
-                // Chart data records -- each entry in this array corresponds to a point on
-                // the chart.
-                data: response.data,
-                // The name of the data record attribute that contains x-values.
-                xkey: 'y',
-                // A list of names of data record attributes that contain y-values.
-                ykeys: ['jumlah'],
-                // Labels for the ykeys -- will be displayed when you hover over the
-                // chart.
-                labels: ['y']
-            });
-              */
+              
             },
             error: function (xhr, ajaxOptions, thrownError) { // Ketika terjadi error
               alert(xhr.responseText); // munculkan alert
@@ -151,7 +139,8 @@
                 ykeys: ['total'],
                 // Labels for the ykeys -- will be displayed when you hover over the
                 // chart.
-                labels: ['dept']
+                labels: ['dept'],
+                resize: true
             });
         },
         error: function (xhr, ajaxOptions, thrownError) { // Ketika terjadi error

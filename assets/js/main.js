@@ -1,12 +1,13 @@
 $(document).ready(function(){
     $('#price_list_link').click(function(){
-        
+            $('#page-wrapper').empty();
               $("#page-wrapper").load('purchasing/price_list');
            
           
     });
 
     $('#stock_wh').click(function(){
+        $('#page-wrapper').empty();
       $("#page-wrapper").load('warehouse/stock_wh');
     });
 
@@ -16,6 +17,7 @@ $(document).ready(function(){
     });
 
     $('#pemakaian').click(function(){
+        $('#page-wrapper').empty();
         $("#page-wrapper").load('warehouse/rekap_page');
         
     });
