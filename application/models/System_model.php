@@ -104,5 +104,10 @@ class System_model extends CI_Model{
         $result = $this->db->query($query)->result();
         return $result;
     }
+    public function list_dept ($dept, $tanggal_awal, $tanggal_akhir){
+        $query = "SELECT tb_recap.item_code, tb_recap.item, tb_recap.spesifikasi, tb_quota.quota , sum(tb_recap.qty) as total, tb_recap.uom FROM tb_recap LEFT JOIN tb_quota ON tb_recap.item_code = tb_quota.item_code AND tb_recap.dept=tb_quota.departemen WHERE tb_recap.out_date >= '$tanggal_awal' AND tb_recap.out_date <= '$tanggal_akhir' and tb_recap.dept ='$dept' GROUP BY tb_recap.item_code, tb_recap.item,tb_recap.spesifikasi, tb_quota.quota, tb_recap.uom";
+        $result = $this->db->query($query)->result();
+        return $result;
+    }
     
 }

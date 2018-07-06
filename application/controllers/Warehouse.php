@@ -102,4 +102,29 @@ class Warehouse extends CI_Controller{
     public function rekap_page(){
         $this->load->view('rekap_pemakaian');
     }
+    public function chart_rekap(){
+        $tanggal_awal = $this->input->post('tgl_awal');
+        $tanggal_akhir = $this->input->post('tgl_akhir');
+
+        if (empty($tanggal_awal) || empty($tanggal_akhir)) {
+            
+            $tanggal_akhir = date('Y-m-d');
+            $tanggal_awal = date('Y-m').'-01';
+        }
+
+        $table = $this->system_model->rekap_dept($tanggal_awal, $tanggal_akhir);
+       
+       /* $data=array();
+        foreach ($table as $row) {
+            
+
+                $track['y']= $row->dept; //y sebagai kata kunci nya (tahun)    
+                $track['jumlah']=$row->total; //jumlah penjualan
+              
+            $data[]=$track;
+        }
+        $json_data = array( 'html' => $this->load->view('table/rekap_used', compact('table','tanggal_awal','tanggal_akhir'),true), 'data'=>$data);
+        */
+        echo json_encode($table);
+    }
 }
