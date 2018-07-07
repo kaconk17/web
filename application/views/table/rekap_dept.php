@@ -42,7 +42,7 @@
                                             <tbody>";
                                             $dept = $row->dept;
                                             $list = $this->system_model->list_dept($dept,$tanggal_awal, $tanggal_akhir);
-
+                                            $id =1;
                                                 foreach ($list as $key) {
                                                     $plan =number_format($key->quota);
                                                     $pakai =number_format($key->total);
@@ -66,8 +66,27 @@
                                                     echo "<td align='center'>".$plan."</td>";
                                                     echo "<td align='center'>".$pakai."</td>";
                                                     echo "<td>".$key->uom."</td>";
-                                                    echo "<td>Details</td>";
-                                                    echo "</tr>";
+                                                    echo "<td><button class='btn btn-xs btn-link' data-toggle='collapse' data-target='#colom".$id."' aria-expanded='false' aria-controls='colom".$id."'>
+                                                    <i class='btn fa fa-question-circle'></i>
+                                                </button></td></tr> ";
+                                                $item_code = $key->item_code;
+                                                $out = $this->system_model->details_out($dept,$tanggal_awal, $tanggal_akhir, $item_code);
+                                                echo "
+                                                <tr>
+                                                <td colspan='7'>
+                                                <div class='collapse' id='colom".$id."'>
+                                                <div class='card card-body'>";
+                                                foreach ($out as $obj) {
+                                                    
+                                                    
+                                                    echo $obj->out_no."<br>";
+                                                    
+                                                }
+                                               echo " </div>
+                                                </div> </td>
+                                                    </tr>
+                                                    ";
+                                                    $id ++;
                                                 } 
                                            echo " </tbody>
                                             

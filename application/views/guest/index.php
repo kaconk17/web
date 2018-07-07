@@ -131,12 +131,7 @@
         <div id="page-wrapper">
         <?=
             $contents;
-            /*if (@$_GET['page']=='dashboard' || @$_GET['page']=='') {
-                include "dashboard.php";
-
-            }elseif (@$_GET['page']=='price_list'){
-                include "price_list.php";
-            }*/
+            
             ?>
         </div>   
         <!-- /#page-wrapper -->

@@ -109,5 +109,11 @@ class System_model extends CI_Model{
         $result = $this->db->query($query)->result();
         return $result;
     }
+
+    public function details_out($dept, $tanggal_awal, $tanggal_akhir, $item_code){
+        $query = "SELECT out_no, out_date, qty, uom FROM tb_recap WHERE out_date >= '$tanggal_awal' AND out_date <= '$tanggal_akhir' AND item_code = '$item_code' AND dept = '$dept'";
+        $result = $this->db->query($query)->result();
+        return $result;
+    }
     
 }
