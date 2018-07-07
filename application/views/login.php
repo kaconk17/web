@@ -52,6 +52,9 @@
                             <button type="submit" class="btn btn-lg btn-success btn-block" name="btn-login" id="btn-login">
                             <span class="glyphicon glyphicon-log-in"></span> &nbsp; Login
                             </button> 
+                            <button type="button" class="btn btn-lg btn-warning btn-block" id="btn-guest" name="btn-guest">
+                                <i class="fa fa-user"></i> Guest
+                            </button>
                             <div id="error">
                             <!--error message-->
                             </div>
@@ -61,9 +64,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-md-offset-4" >
-            <button type="submit" class="btn btn-warning btn-block">
-                    <i class="fa fa-user"></i> Guest
-                </button>
+            
             </div>
         </div>
     </div>

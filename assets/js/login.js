@@ -26,6 +26,27 @@ $(document).ready(function(){
         e.preventDefault();
     });
 
+    $('#btn-guest').click(function(){
+        //alert('test');
+        $.ajax({
+            type: "POST",
+            url: 'auth/guest',
+            data: 0,
+                            
+            success: function(response){
+               if(response== "success")
+                {
+                    
+                    window.location = '';
+                }
+                else
+                {
+                    
+                    $("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Login Gagal !</div>');
+                }
+            }           
+        });   
+    });
     
 
 });

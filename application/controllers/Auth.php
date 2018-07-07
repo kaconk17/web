@@ -5,11 +5,7 @@ class Auth extends CI_Controller{
         $this->load->model('model_user');
     }
     function login(){
-        //if(isset($_POST['btn-login'])){
-            
-           
-           //$username = $_POST['username'];
-           //$password = $_POST['password'];
+        
            $username = $this->input->post('username');
            $password = $this->input->post('password');
 
@@ -30,12 +26,7 @@ class Auth extends CI_Controller{
             
             }
             
-           // echo json_decode($output);
-        //}
-      // else{
-         //  $this->load->view('login');
-            
-      // }
+          
     }
     function logout(){
         $this->session->unset_userdata('NAMA');
@@ -47,6 +38,10 @@ class Auth extends CI_Controller{
     function index(){
         if ($this->session->userdata('login_status')!= TRUE) {
             $this->load->view('login');
+        } elseif ($this->session->userdata('login_status')== TRUE && $this->session->userdata('LEVEL') == 'guest') {
+            
+            $this->template->load('guest/index','dashboard');
+            //$this->load->view('guest/index');
         }else{
             
             $this->template->load('index','dashboard');
@@ -55,5 +50,14 @@ class Auth extends CI_Controller{
 
     function price_list(){
        $this->template->load('index','price_list');
+    }
+
+    function guest(){
+        $sess_array = array('NAMA'=>'guest','DEPT'=>'guest','LEVEL'=>'guest', 'login_status'=>TRUE,);
+                    $this->session->set_userdata($sess_array);
+                    echo "success";
+    }
+    public function dashboard(){
+        $this->load->view('dashboard');
     }
 }

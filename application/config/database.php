@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'NPMI1020',
+	'hostname' => 'localhost',
 	'username' => 'sa',
-	'password' => 'NPMI',
+	'password' => 'NPMI%123',
 	'database' => 'pass',
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',

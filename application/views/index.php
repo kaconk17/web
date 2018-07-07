@@ -10,7 +10,7 @@
 
     <!-- Core CSS - Include with every page -->
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/font-awesome/Css/font-awesome.css" rel="stylesheet">
 
     <!-- Page-Level Plugin CSS - Dashboard -->
     <link href="<?php echo base_url(); ?>assets/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
@@ -75,6 +75,9 @@
                                     <a id="price_list_link" style="cursor:pointer">Price List</a>
                                 </li>
                                 <li>
+                                    <a id="request_link" style="cursor:pointer">Request</a>
+                                </li>
+                                <li>
                                     <a id="order_link" style="cursor:pointer">Order</a>
                                 </li>
                             </ul>
@@ -97,7 +100,7 @@
                             <a href="#"><i class="fa fa-medkit fa-fw"></i> Maintenance<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Jam kerusakan</a>
+                                    <a id="jam_kerusakan" style="cursor:pointer">Jam kerusakan</a>
                                 </li>
                                
                             </ul>
@@ -107,10 +110,10 @@
                             <a href="#"><i class="fa fa-truck fa-fw"></i> Exim<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a >Second Level Item</a>
                                 </li>
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a >Second Level Item</a>
                                 </li>
                                 
                             </ul>

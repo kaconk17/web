@@ -127,4 +127,5 @@ class Warehouse extends CI_Controller{
         */
         echo json_encode($table);
     }
+    
 }

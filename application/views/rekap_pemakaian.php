@@ -140,7 +140,8 @@
                 // Labels for the ykeys -- will be displayed when you hover over the
                 // chart.
                 labels: ['Total'],
-                resize: true
+                gridTextSize:10,
+                resize: false
             });
         },
         error: function (xhr, ajaxOptions, thrownError) { // Ketika terjadi error
