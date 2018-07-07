@@ -10,7 +10,7 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     
                     <!-- /.panel -->
                     <div class="panel panel-default">
@@ -28,7 +28,7 @@
                                 <label for="tgl_akhir">End</label>
                                 <input type='text' class="form-control-sm" id="tgl_akhir"/>
                                 
-                                <button type="button" class="btn-sm btn-default" id="btn_submit">Submit</button>
+                                <button type="button" class="btn btn-primary" id="btn_submit">Submit</button>
                             
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
                                 <!-- /.col-lg-4 (nested) -->
-                                <div class="col-lg-8">
+                                <div class="col-lg-12">
                                     <div id="bar-chart"></div>
                                 </div>
                                 <!-- /.col-lg-8 (nested) -->
@@ -139,7 +139,7 @@
                 ykeys: ['total'],
                 // Labels for the ykeys -- will be displayed when you hover over the
                 // chart.
-                labels: ['dept'],
+                labels: ['Total'],
                 resize: true
             });
         },

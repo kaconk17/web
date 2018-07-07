@@ -60,6 +60,11 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4 col-md-offset-4" >
+            <button type="submit" class="btn btn-warning btn-block">
+                    <i class="fa fa-user"></i> Guest
+                </button>
+            </div>
         </div>
     </div>
     
