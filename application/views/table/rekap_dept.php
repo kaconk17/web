@@ -66,7 +66,7 @@
                                                     echo "<td align='center'>".$plan."</td>";
                                                     echo "<td align='center'>".$pakai."</td>";
                                                     echo "<td>".$key->uom."</td>";
-                                                    echo "<td><button class='btn btn-xs btn-link' data-toggle='collapse' data-target='#colom".$id."' aria-expanded='false' aria-controls='colom".$id."'>
+                                                    echo "<td><button class='btn btn-xs btn-link' data-toggle='collapse' data-target='#colom".$no.$id."' aria-expanded='false' aria-controls='colom".$no.$id."'>
                                                     <i class='btn fa fa-question-circle'></i>
                                                 </button></td></tr> ";
                                                 $item_code = $key->item_code;
@@ -74,7 +74,7 @@
                                                 echo "
                                                 <tr>
                                                 <td colspan='7'>
-                                                <div class='collapse' id='colom".$id."'>
+                                                <div class='collapse' id='colom".$no.$id."'>
                                                 <div class='card card-body'>";
                                                 foreach ($out as $obj) {
                                                     

@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="?page=dashboard">PT. NPR Manufacturing Indonesia</a>
+                <a class="navbar-brand"> <img src="<?php echo base_url(); ?>assets/images/NPMI.png" style="heigh:30px;width:30px"> PT. NPR Manufacturing Indonesia</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -43,7 +43,7 @@
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="dropdown-toggle" data-toggle="dropdown" >
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
@@ -120,6 +120,11 @@
                             <!-- /.nav-second-level -->
                         </li>
                         
+                        
+                   
+                    <li>
+                            <br><br><a id="link_logout" style="cursor:pointer" href="<?php echo base_url('auth/logout'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
                     </ul>
                     <!-- /#side-menu -->
                 </div>

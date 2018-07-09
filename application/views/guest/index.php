@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="?page=dashboard">PT. NPR Manufacturing Indonesia</a>
+                <a class="navbar-brand"> <img src="<?php echo base_url(); ?>assets/images/NPMI.png" style="heigh:30px;width:30px"> PT. NPR Manufacturing Indonesia</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -119,7 +119,9 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        
+                        <li>
+                            <br><br><a id="link_logout" style="cursor:pointer" href="<?php echo base_url('auth/logout'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
                     </ul>
                     <!-- /#side-menu -->
                 </div>
