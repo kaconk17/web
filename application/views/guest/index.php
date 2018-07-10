@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand"> <img src="<?php echo base_url(); ?>assets/images/NPMI.png" style="heigh:30px;width:30px"> PT. NPR Manufacturing Indonesia</a>
+                <a class="navbar-brand"> <img src="<?php echo base_url(); ?>assets/images/NPMI.png" style="heigh:30px;width:30px" class="img-circle"> PT. NPR Manufacturing Indonesia</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -142,19 +142,18 @@
     <!-- /#wrapper -->
 
     <!-- Core Scripts - Include with every page -->
-    <script src="<?php echo base_url(); ?>assets/js/jquery-1.10.2.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+    
     <script src="<?php echo base_url(); ?>assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
     <!-- Page-Level Plugin Scripts - Dashboard -->
     
-    <script src="<?php echo base_url(); ?>assets/js/plugins/morris/morris.js"></script>
+   
 
     <!-- SB Admin Scripts - Include with every page -->
     <script src="<?php echo base_url(); ?>assets/js/sb-admin.js"></script>
 
     <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
-    <script src="<?php echo base_url(); ?>assets/js/demo/dashboard-demo.js"></script>
+    
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/main.js"></script>
 
 </body>

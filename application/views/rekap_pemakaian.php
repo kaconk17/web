@@ -69,8 +69,7 @@
         
   
         <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/plugins/jquery-ui/jquery-ui.js"></script>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/js/plugins/jquery-ui/jquery-ui.css">
+        <script src="<?php echo base_url(); ?>assets/js/sb-admin.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/plugins/morris/morris.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/plugins/morris/raphael-2.1.0.min.js"></script>
         <script type="text/javascript">
