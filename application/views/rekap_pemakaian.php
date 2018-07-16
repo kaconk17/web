@@ -133,14 +133,16 @@
                 // the chart.
                 data: response,
                 // The name of the data record attribute that contains x-values.
-                xkey: 'dept',
+                xkey: 'dept1',
                 // A list of names of data record attributes that contain y-values.
-                ykeys: ['total'],
+                ykeys: ['total1','total2'],
                 // Labels for the ykeys -- will be displayed when you hover over the
                 // chart.
-                labels: ['Total'],
-                gridTextSize:10,
+                labels: ['Total1','Total2'],
+                stacked: true,
+                hideHover: 'auto',
                 resize: false
+                
             });
         },
         error: function (xhr, ajaxOptions, thrownError) { // Ketika terjadi error

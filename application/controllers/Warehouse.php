@@ -108,15 +108,27 @@ class Warehouse extends CI_Controller{
 
         if (empty($tanggal_awal) || empty($tanggal_akhir)) {
             
-            $tanggal_akhir = date('Y-m-d');
-            $tanggal_awal = date('Y-m').'-01';
+            //$tanggal_akhir = date('Y-m-d');
+            //$tanggal_awal = date('Y-m').'-01';
+            $tanggal_awal = '2018-05-01';
+            $tanggal_akhir = '2018-05-30';
         }
-
+        $tgl_str = date('Y-m').'-01';
+        $tanggal_avg = date('Y-m-d', strtotime('-3 month', strtotime($tgl_str)));
+        
         $table = $this->system_model->rekap_dept($tanggal_awal, $tanggal_akhir);
-       
-       
-        echo json_encode($table);
+        $table2 = $this->system_model->avg_pemakaian($tanggal_avg, $tgl_str);
+       //$table['tanggal']= $tanggal_awal;
+       //$table['tanggal']->tanggal_akhir= $tanggal_akhir;
+       $data = array();
+       foreach ($table as $row){
+            $data[]= array('dept1'=>$row->dept, 'total1'=>$row->total,);
+       }
+       foreach ($table2 as $key) {
+           $data[]= array('dept1'=>$key->dept, 'total2'=>$key->total,);
+       }
+        echo json_encode($data);
     }
-    
+
     
 }

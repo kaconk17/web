@@ -115,5 +115,11 @@ class System_model extends CI_Model{
         $result = $this->db->query($query)->result();
         return $result;
     }
+
+    public function avg_pemakaian($tanggal_awal, $tanggal_akhir){
+        $query = "SELECT dept, sum(price)/3 as total FROM tb_recap WHERE out_date >= '$tanggal_awal' AND out_date <= '$tanggal_akhir' group by dept";
+        $result = $this->db->query($query)->result();
+        return $result;
+    }
     
 }

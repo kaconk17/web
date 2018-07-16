@@ -52,21 +52,25 @@
             dataType: "json",
 
             success: function(response){ 
-             
+             alert(JSON.parse(response.avg));
             $('#bar-chart').empty();
              Morris.Bar({
                 // ID of the element in which to draw the chart.
                 element: 'chart_pemakaian',
                 // Chart data records -- each entry in this array corresponds to a point on
                 // the chart.
-                data: response,
+                data: [{
+                    dept: response.avg.dept,
+                    a: response.avg.total,
+                    b: response.chart.total,
+                }],
                 // The name of the data record attribute that contains x-values.
                 xkey: 'dept',
                 // A list of names of data record attributes that contain y-values.
-                ykeys: ['total'],
+                ykeys:['a','b'],
                 // Labels for the ykeys -- will be displayed when you hover over the
                 // chart.
-                labels: ['Total'],
+                labels: ['rata-rata','total'],
                 gridTextSize:10,
                 resize: false
             });
