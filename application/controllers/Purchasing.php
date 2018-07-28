@@ -60,7 +60,8 @@ class Purchasing extends CI_Controller{
         $data = array();
         if(!empty($posts))
         {
-            foreach ($posts as $post)
+            
+                foreach ($posts as $post)
             {
                 $no++;
                 $nestedData['no'] = $no;
@@ -77,7 +78,9 @@ class Purchasing extends CI_Controller{
                 
                 $data[] = $nestedData;
 
-            }
+            } 
+            
+            
         }
 
         $json_data = array(

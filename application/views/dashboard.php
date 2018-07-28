@@ -41,6 +41,7 @@
            var tanggal_awal = d.getFullYear() + "-" + (d.getMonth()+1) + "-01";
            var tanggal_akhir = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
            $('#label_tgl').html(tanggal_awal+" Sampai "+tanggal_akhir);
+           
            chart_rekap();
        });
 
@@ -52,25 +53,21 @@
             dataType: "json",
 
             success: function(response){ 
-             alert(JSON.parse(response.avg));
+             
             $('#bar-chart').empty();
              Morris.Bar({
                 // ID of the element in which to draw the chart.
                 element: 'chart_pemakaian',
                 // Chart data records -- each entry in this array corresponds to a point on
                 // the chart.
-                data: [{
-                    dept: response.avg.dept,
-                    a: response.avg.total,
-                    b: response.chart.total,
-                }],
+                data: response,
                 // The name of the data record attribute that contains x-values.
-                xkey: 'dept',
+                xkey: 'dept1',
                 // A list of names of data record attributes that contain y-values.
-                ykeys:['a','b'],
+                ykeys:['total1'],
                 // Labels for the ykeys -- will be displayed when you hover over the
                 // chart.
-                labels: ['rata-rata','total'],
+                labels: ['Total'],
                 gridTextSize:10,
                 resize: false
             });

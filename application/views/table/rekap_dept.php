@@ -82,7 +82,8 @@
                                                     echo "<div class='col-sm-2'>$obj->out_date</div>";
                                                     echo "<div class='col-sm-2' align='right'>".number_format($obj->qty)."</div>";
                                                     echo "<div class='col-sm-2'>$obj->uom</div>";
-                                                    echo "<div class='col-sm-2'>$obj->out_no</div></div>";
+                                                    echo "<div class='col-sm-2'>$obj->out_no</div>";
+                                                    echo "<div class='col-sm-2'align='center'>$obj->used</div></div>";
                                                 }
                                                echo " </div>
                                                 </div> </td>

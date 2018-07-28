@@ -74,6 +74,7 @@
         <script src="<?php echo base_url(); ?>assets/js/plugins/morris/raphael-2.1.0.min.js"></script>
         <script type="text/javascript">
         $(document).ready(function(){
+            
             chart_rekap();
             load_table();
             
@@ -135,13 +136,13 @@
                 // The name of the data record attribute that contains x-values.
                 xkey: 'dept1',
                 // A list of names of data record attributes that contain y-values.
-                ykeys: ['total1','total2'],
+                ykeys: ['total1'],
                 // Labels for the ykeys -- will be displayed when you hover over the
                 // chart.
-                labels: ['Total1','Total2'],
+                labels: ['Total1'],
                 stacked: true,
                 hideHover: 'auto',
-                resize: false
+                resize: true
                 
             });
         },

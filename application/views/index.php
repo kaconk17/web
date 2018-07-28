@@ -49,7 +49,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i><?php $nama= $this->session-> userdata('NAMA'); echo $nama; ?></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="#"><i class="fa fa-gear fa-fw" id="level"></i> <?php $level= $this->session-> userdata('LEVEL'); echo $level; ?></a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="<?php echo base_url('auth/logout'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

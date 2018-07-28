@@ -15,7 +15,25 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
+                                   <?php
+                                   $level_user = $this->session->userdata('LEVEL');
+                                   if ($level_user == 'Manager' || $level_user== 'Administrator') {
+                                       echo "<thead>
+                                       <tr>
+                                           <th>No.</th>
+                                           <th>Item Code</th>
+                                           <th>Class</th>
+                                           <th>Item</th>
+                                           <th>Spesifikasi</th>
+                                           <th>Uom</th>
+                                           <th>Unit Price</th>
+                                           <th>Currency</th>
+                                           <th>Supplier</th>
+                                           </tr>
+   
+                                       </thead>" ;
+                                   } else {
+                                    echo "<thead>
                                     <tr>
                                         <th>No.</th>
                                         <th>Item Code</th>
@@ -23,13 +41,12 @@
                                         <th>Item</th>
                                         <th>Spesifikasi</th>
                                         <th>Uom</th>
-                                        <th>Unit Price</th>
-                                        <th>Currency</th>
-                                        <th>Supplier</th>
                                         </tr>
 
-                                    </thead>
+                                    </thead>" ;
+                                   }
                                     
+                                    ?>
                                     <tbody>
                                         
                                     </tbody>
@@ -57,7 +74,11 @@
             
     <script>
     $(document).ready(function() {
-        $('#dataTables-example').dataTable({
+        var level = '<?php $level = $this->session-> userdata('LEVEL'); echo $level;?>';
+            
+           alert (level);
+           if (level == 'Manager' || level == 'Administrator') {
+            $('#dataTables-example').dataTable({
             "processing": true,
             "serverSide": true,
             "ajax":{
@@ -81,5 +102,29 @@
 
            
         });
+           } else {
+            $('#dataTables-example').dataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax":{
+                "url":'purchasing/datatable_price',
+                "dataType":"json",
+                "type":'POST'
+
+            },
+            
+            "columns":[ 
+                { "data": "no" },
+		          { "data": "item_code" },
+		          { "data": "class" },
+		          { "data": "item" },
+                  { "data": "spesifikasi" },
+                  { "data": "uom" },
+            ]
+
+           
+        });
+           }
+        
     });
     </script>
