@@ -76,7 +76,7 @@
     $(document).ready(function() {
         var level = '<?php $level = $this->session-> userdata('LEVEL'); echo $level;?>';
             
-           alert (level);
+           
            if (level == 'Manager' || level == 'Administrator') {
             $('#dataTables-example').dataTable({
             "processing": true,
