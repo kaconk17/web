@@ -75,7 +75,7 @@
                                     <a id="price_list_link" style="cursor:pointer">Price List</a>
                                 </li>
                                 <li>
-                                    <a id="request_link" style="cursor:pointer">Request</a>
+                                    <a id="link_req" style="cursor:pointer">Request</a>
                                 </li>
                                 <li>
                                     <a id="order_link" style="cursor:pointer">Order</a>

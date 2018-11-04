@@ -92,4 +92,60 @@ class Purchasing extends CI_Controller{
     
         echo json_encode($json_data); 
     }
+    public function table_request(){
+        $limit = $this->input->post('length');
+        $start = $this->input->post('start');;
+        
+        $record = $this->system_model->total_allrecord('tb_request');
+        $totalFiltered = $record;
+        
+        if(empty($this->input->post('search')['value']))
+        {            
+            $posts = $this->system_model->get_alldata('tb_request',$limit,$start);
+        }
+        else {
+            $search = $this->input->post('search')['value']; 
+
+            $posts =  $this->system_model->search_alldata('tb_request',$limit,$start,$search);
+
+            $totalFiltered = $this->system_model->total_search('tb_request',$search);
+        }
+        $no = $start;
+        $data = array();
+        if(!empty($posts))
+        {
+            foreach ($posts as $post)
+            {
+                $no++;
+                $nestedData['no'] = $no;
+                $nestedData['request_date'] = $post->request_date;
+                $nestedData['request_no'] = $post->request_no;
+                $nestedData['item'] = $post->item;
+                $nestedData['spesifikasi'] = $post->spesifikasi;
+                $nestedData['item_code'] = $post->item_code;
+                $nestedData['qty'] = number_format($post->qty);
+                $nestedData['uom'] = $post->uom;
+                $nestedData['reason'] = $post->reason;
+                $nestedData['po_no'] = $post->po_np;
+                $nestedData['status_po'] = $post->status_po;
+                
+                
+                
+                $data[] = $nestedData;
+
+            }
+        }
+
+        $json_data = array(
+            'draw'            => intval($this->input->post('draw')),  
+            'recordsTotal'    => intval($record),  
+            'recordsFiltered' => intval($totalFiltered), 
+            'data'            => $data   
+            );
+    
+        echo json_encode($json_data); 
+    }
+    public function request_table(){
+        $this->load->view('table/request_list');
+    }
 }
