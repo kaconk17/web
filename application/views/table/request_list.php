@@ -85,7 +85,7 @@
             "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
             if ( aData['status_po'] == "complete" )
             {
-                $('td', nRow).css('background-color', 'hsla(9,100%,64%,0.8)' );
+                $('td', nRow).css('background-color', 'hsl(100, 100%, 85%)' );
             }
             
             }

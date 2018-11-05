@@ -126,7 +126,7 @@ class Purchasing extends CI_Controller{
                 $nestedData['qty'] = number_format($post->qty);
                 $nestedData['uom'] = $post->uom;
                 $nestedData['reason'] = $post->reason;
-                $nestedData['po_no'] = $post->po_np;
+                $nestedData['po_no'] = $post->po_no;
                 $nestedData['status_po'] = $post->status_po;
                 
                 
