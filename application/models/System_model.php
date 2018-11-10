@@ -122,6 +122,54 @@ class System_model extends CI_Model{
         return $result;
     }
 
+    public function request_dept($table, $perpage, $offset, $dept){
+
+       
+            $this->db->select('*');
+        $this->db->from($table);
+        $this->db->WHERE('dept',$dept);
+        
+        
+        $this->db->limit(10,$offset);
+       
+        
+       
+        $result = $this->db->get()->result();
+        return $result;
+    }
+
+    public function cari_request($table, $perpage, $offset, $dept, $search){
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->WHERE('dept',$dept);
+        $this->db->like('item',$search);
+        $this->db->or_where('dept',$dept);
+        $this->db->like('spesifikasi',$search);
+        
+        $this->db->limit(10,$offset);
+        $result = $this->db->get()->result();
+        return $result;
+    }
+
+    public function alldata_request($table, $dept){
+        
+            $query = $this->db->query("SELECT count(*) as row FROM $table WHERE dept LIKE '%$dept%'")->row_array();
+        
+        
+        
+        
+        return $query['row'];
+    }
+
+    public function alldata_cari_request($table, $dept, $search){
+        $query = $this->db->query("SELECT count(*) as row FROM $table WHERE (dept LIKE '%$dept%' AND item LIKE '%$search%') or (dept LIKE '%$dept%' AND spesifikasi like '%$search%')")->row_array();
+        
+        
+        
+        
+        return $query['row'];
+    }
+
     
 
     

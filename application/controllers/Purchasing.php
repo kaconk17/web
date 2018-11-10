@@ -40,7 +40,7 @@ class Purchasing extends CI_Controller{
 
     public function datatable_price(){
         $limit = $this->input->post('length');
-        $start = $this->input->post('start');;
+        $start = $this->input->post('start');
         
         $record = $this->system_model->total_allrecord('tb_masteritem');
         $totalFiltered = $record;
@@ -94,21 +94,22 @@ class Purchasing extends CI_Controller{
     }
     public function table_request(){
         $limit = $this->input->post('length');
-        $start = $this->input->post('start');;
+        $start = $this->input->post('start');
+        $dept = $this->session->userdata('DEPT');
         
-        $record = $this->system_model->total_allrecord('tb_request');
+        $record = $this->system_model->alldata_request('tb_request', $dept);
         $totalFiltered = $record;
         
         if(empty($this->input->post('search')['value']))
         {            
-            $posts = $this->system_model->get_alldata('tb_request',$limit,$start);
+            $posts = $this->system_model->request_dept('tb_request',$limit,$start, $dept);
         }
         else {
             $search = $this->input->post('search')['value']; 
 
-            $posts =  $this->system_model->search_alldata('tb_request',$limit,$start,$search);
+            $posts =  $this->system_model->cari_request('tb_request',$limit,$start, $dept,$search);
 
-            $totalFiltered = $this->system_model->total_search('tb_request',$search);
+            $totalFiltered = $this->system_model->alldata_cari_request('tb_request',$dept, $search);
         }
         $no = $start;
         $data = array();
