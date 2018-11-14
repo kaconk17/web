@@ -30,5 +30,11 @@ $(document).ready(function(){
         
     });
 
+    $('#notcomplete_req').click(function(){
+        $('#page-wrapper').empty();
+        $("#page-wrapper").load('purchasing/request_ng');
+        
+    });
+
     
 });

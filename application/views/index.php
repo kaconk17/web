@@ -74,8 +74,19 @@
                                 <li>
                                     <a id="price_list_link" style="cursor:pointer">Price List</a>
                                 </li>
+                                
                                 <li>
-                                    <a id="link_req" style="cursor:pointer">Request</a>
+                                    <a href="#">Request <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a id="link_req" style="cursor:pointer">All Request</a>
+                                        </li>
+                                        <li>
+                                            <a id="notcomplete_req" style="cursor:pointer">Not Complete Request</a>
+                                        </li>
+                                        
+                                    </ul>
+                                    <!-- /.nav-third-level -->
                                 </li>
                                 <li>
                                     <a id="order_link" style="cursor:pointer">Order</a>

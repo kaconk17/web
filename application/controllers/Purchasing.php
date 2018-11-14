@@ -64,13 +64,20 @@ class Purchasing extends CI_Controller{
                 foreach ($posts as $post)
             {
                 $no++;
+                $harga = $post->uom;
+                if ($harga == 'USD') {
+                    $formatedprice = number_format($post->price,4,".",",");
+                } else {
+                    $formatedprice = number_format($post->price,2,".",",");
+                }
+                
                 $nestedData['no'] = $no;
                 $nestedData['item_code'] = $post->item_code;
                 $nestedData['class'] = $post->class;
                 $nestedData['item'] = $post->item;
                 $nestedData['spesifikasi'] = $post->spesifikasi;
                 $nestedData['uom'] = $post->uom;
-                $nestedData['price'] = $post->price;
+                $nestedData['price'] = $formatedprice;
                 $nestedData['currency'] = $post->currency;
                 $nestedData['supplier'] = $post->supplier;
                 
@@ -149,4 +156,63 @@ class Purchasing extends CI_Controller{
     public function request_table(){
         $this->load->view('table/request_list');
     }
+    public function request_ng(){
+        $this->load->view('table/request_ng');
+    }
+
+    public function list_req_ng(){
+        $limit = $this->input->post('length');
+        $start = $this->input->post('start');
+        $dept = $this->session->userdata('DEPT');
+        
+        $record = $this->system_model->allreq_ng('tb_request', $dept);
+        $totalFiltered = $record;
+        
+        if(empty($this->input->post('search')['value']))
+        {            
+            $posts = $this->system_model->requestng_dept('tb_request',$limit,$start, $dept);
+        }
+        else {
+            $search = $this->input->post('search')['value']; 
+
+            $posts =  $this->system_model->cari_request('tb_request',$limit,$start, $dept,$search);
+
+            $totalFiltered = $this->system_model->alldata_cari_request('tb_request',$dept, $search);
+        }
+        $no = $start;
+        $data = array();
+        if(!empty($posts))
+        {
+            foreach ($posts as $post)
+            {
+                $no++;
+                $nestedData['no'] = $no;
+                $nestedData['request_date'] = $post->request_date;
+                $nestedData['request_no'] = $post->request_no;
+                $nestedData['item'] = $post->item;
+                $nestedData['spesifikasi'] = $post->spesifikasi;
+                $nestedData['item_code'] = $post->item_code;
+                $nestedData['qty'] = number_format($post->qty);
+                $nestedData['uom'] = $post->uom;
+                $nestedData['reason'] = $post->reason;
+                $nestedData['po_no'] = $post->po_no;
+                $nestedData['status_po'] = $post->status_po;
+                
+                
+                
+                $data[] = $nestedData;
+
+            }
+        }
+
+        $json_data = array(
+            'draw'            => intval($this->input->post('draw')),  
+            'recordsTotal'    => intval($record),  
+            'recordsFiltered' => intval($totalFiltered), 
+            'data'            => $data   
+            );
+    
+        echo json_encode($json_data); 
+    }
+
 }

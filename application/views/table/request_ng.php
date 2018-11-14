@@ -65,7 +65,7 @@
             //"scrollX": true,
             //"scrollY": 200,
             "ajax":{
-                "url":'purchasing/table_request',
+                "url":'purchasing/list_req_ng',
                 "dataType":"json",
                 "type":'POST'
 

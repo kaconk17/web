@@ -170,7 +170,30 @@ class System_model extends CI_Model{
         return $query['row'];
     }
 
+    public function allreq_ng($table, $dept){
+        
+        $query = $this->db->query("SELECT count(*) as row FROM $table WHERE (dept like '%mach%' AND kedatangan not like '%Complete%') or (dept like '%mach%' AND kedatangan IS NULL)")->row_array();
     
+    return $query['row'];
+}
+
+public function requestng_dept($table, $perpage, $offset, $dept){
+
+       
+    $this->db->select('*');
+$this->db->from($table);
+$this->db->WHERE('dept',$dept);
+$this->db->WHERE('kedatangan',NULL);
+$this->db->or_where('dept',$dept);
+$this->db->not_like('kedatangan','Complete');
+
+$this->db->limit(10,$offset);
+
+
+
+$result = $this->db->get()->result();
+return $result;
+}
 
     
 }
