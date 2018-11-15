@@ -181,18 +181,43 @@ public function requestng_dept($table, $perpage, $offset, $dept){
 
        
     $this->db->select('*');
-$this->db->from($table);
-$this->db->WHERE('dept',$dept);
-$this->db->WHERE('kedatangan',NULL);
-$this->db->or_where('dept',$dept);
-$this->db->not_like('kedatangan','Complete');
-
-$this->db->limit(10,$offset);
+    $this->db->from($table);
+    $this->db->WHERE('dept',$dept);
+    $this->db->WHERE('kedatangan',NULL);
+    $this->db->or_where('dept',$dept);
+    $this->db->not_like('kedatangan','Complete');
 
 
+    $this->db->limit(10,$offset);
 
-$result = $this->db->get()->result();
-return $result;
+
+
+    $result = $this->db->get()->result();
+    return $result;
+}
+
+public function cari_requestng($table, $perpage, $offset, $dept, $search){
+    $this->db->select('*');
+    $this->db->from($table);
+    $this->db->WHERE('dept',$dept);
+    $this->db->WHERE('kedatangan',NULL);
+    $this->db->like('item',$search);
+    $this->db->or_where('dept',$dept);
+    $this->db->not_like('kedatangan','Complete');
+    $this->db->like('spesifikasi',$search);
+    
+    $this->db->limit(10,$offset);
+    $result = $this->db->get()->result();
+    return $result;
+}
+
+public function alldata_cari_requestng($table, $dept, $search){
+    $query = $this->db->query("SELECT count(*) as row FROM $table WHERE (dept LIKE '%$dept%' AND item LIKE '%$search%' AND kedatangan NOT LIKE '%Complete%') or (dept LIKE '%$dept%' AND spesifikasi like '%$search%' AND kedatangan IS NULL)")->row_array();
+    
+    
+    
+    
+    return $query['row'];
 }
 
     

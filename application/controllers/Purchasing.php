@@ -136,7 +136,7 @@ class Purchasing extends CI_Controller{
                 $nestedData['reason'] = $post->reason;
                 $nestedData['po_no'] = $post->po_no;
                 $nestedData['status_po'] = $post->status_po;
-                
+                $nestedData['kedatangan'] = $post->kedatangan;
                 
                 
                 $data[] = $nestedData;
@@ -175,9 +175,9 @@ class Purchasing extends CI_Controller{
         else {
             $search = $this->input->post('search')['value']; 
 
-            $posts =  $this->system_model->cari_request('tb_request',$limit,$start, $dept,$search);
+            $posts =  $this->system_model->cari_requestng('tb_request',$limit,$start, $dept,$search);
 
-            $totalFiltered = $this->system_model->alldata_cari_request('tb_request',$dept, $search);
+            $totalFiltered = $this->system_model->alldata_cari_requestng('tb_request',$dept, $search);
         }
         $no = $start;
         $data = array();
@@ -196,7 +196,7 @@ class Purchasing extends CI_Controller{
                 $nestedData['uom'] = $post->uom;
                 $nestedData['reason'] = $post->reason;
                 $nestedData['po_no'] = $post->po_no;
-                $nestedData['status_po'] = $post->status_po;
+                
                 
                 
                 

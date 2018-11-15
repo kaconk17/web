@@ -1,6 +1,6 @@
 <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Request Departemen <?php $dept = $this->session->userdata('DEPT'); echo $dept;?> </h1>
+                    <h1 class="page-header">Request Departemen <?php $dept = $this->session->userdata('DEPT'); echo $dept;?> Not Complete</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -82,16 +82,16 @@
                   { "data": "uom" },
                   { "data": "reason" },
                   { "data": "po_no" },
-                  { "data": "status_po" },
+                  
             ],
-            "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+           /* "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
             if ( aData['status_po'] == "complete" )
             {
                 $('td', nRow).css('background-color', 'hsl(100, 100%, 85%)' );
             }
+            */
             
-            
-            }
+        
 
         });
     });

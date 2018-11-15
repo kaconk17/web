@@ -27,7 +27,7 @@
                                     <th>Uom</th>
                                     <th>Reason</th>
                                     <th>Nomer PO</th>
-                                    <th>Status PO</th>
+                                    <th>Status Request</th>
                                     </tr>
 
                                     </thead>
@@ -82,12 +82,15 @@
                   { "data": "uom" },
                   { "data": "reason" },
                   { "data": "po_no" },
-                  { "data": "status_po" },
+                  
+                  { "data": "kedatangan" },
             ],
             "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-            if ( aData['status_po'] == "complete" )
+            if ( aData['kedatangan'] == "Complete" )
             {
                 $('td', nRow).css('background-color', 'hsl(100, 100%, 85%)' );
+            } else {
+                $('td', nRow).css('background-color', 'hsla(9,100%,64%,0.8)' );
             }
             
             
